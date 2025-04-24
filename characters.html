@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Characters</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+      <body>
+        <div class="page">
+          <!-- Music -->
+          <audio id="bg-music" autoplay loop>
+            <source src="https://archive.org/download/sonic-30th-anniversary-orchestra/Sonic%20the%20Hedgehog%20Medley.mp3"                               type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+
+          <!-- Random Sonic Quote -->
+          <div id="random-saying">Loading...</div>
+
+          <!-- Top Menu -->
+          <nav>
+            <a href="characters.html" class="menu-btn">Characters</a>
+            <a href="animations.html" class="menu-btn">Animations</a>
+            <a href="index.html#fanart" class="menu-btn">Fan Art</a>
+          </nav>
+
+          <!-- Characters Section -->
+          <section id="characters">
+            <h2>💙 Choose Your Character</h2>
+            <a href="sonic.html" class="blue-btn">Sonic the Hedgehog</a>
+            <a href="tails.html" class="yellow-btn">Tails</a>
+            <a href="knuckles.html" class="red-btn">Knuckles</a>
+            <a href="amy.html" class="purple-btn">Amy Rose</a>
+            <a href="shadow.html" class="black-btn">Shadow the                         Hedgehog</a>
+            <a href="rouge.html" class="pink-btn">Rouge the Bat</a>
+            <a href="omega.html" class="gray-btn">E-123 Omega</a>
+            <a href="eggman.html" class="orange-btn">Dr. Eggman</a>
+            <a href="silver.html" class="silver-btn">Silver the                        Hedgehog</a>
+            <a href="emerl.html" class="cyan-btn">Emerl</a>
+            <a href="maria.html" class="maria-btn">Maria Robotnik</a>
+            <a href="gerald.html" class="graylight-btn">Gerald                         Robotnik</a>
+             <a href="chaos.html" class="bluewave-btn">Chaos</a>
+            <a href="infinite.html" class="darkpurple-btn">Infinite</a>
+            <a href="zavok.html" class="redz-btn">Zavok</a>
+            <a href="deadlysix.html" class="darksteel-btn">The Deadly                  Six</a>
+            <a href="eggmannega.html" class="nega-btn">Eggman Nega</a>
+
+
+
+
+            <br><br>
+            <a href="index.html" class="menu-btn">⬅ Back to Home</a>
+          </section>
+        </div>
+      </body>
+    
+  <!-- Music -->
+  <audio id="bg-music" autoplay loop>
+    <source src="https://archive.org/download/sonic-30th-anniversary-orchestra/Sonic%20the%20Hedgehog%20Medley.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Quote & Music Script -->
+  <script>
+    const sayings = [
+      "Gotta go fast!",
+      "You're too slow!",
+      "Let's blast through with Sonic speed!",
+      "Time to crack that Egghead wide open!",
+      "The servers are the seven Chaos...",
+      "Way past cool!",
+      "Come on, step it up!",
+      "Catch me if you can!",
+    ];
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const randomSayingDiv = document.getElementById("random-saying");
+      const randomIndex = Math.floor(Math.random() * sayings.length);
+      randomSayingDiv.innerText = sayings[randomIndex];
+    });
+
+    document.addEventListener("click", () => {
+      const music = document.getElementById("bg-music");
+      if (music && music.paused) {
+        music.play().catch(() => console.log("Autoplay was blocked"));
+      }
+    });
+  </script>
+    </div>
+</body>
+</html>

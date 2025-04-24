@@ -1,0 +1,63 @@
+<!-- animations.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Animations</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page">
+
+  <!-- Music -->
+  <audio id="bg-music" autoplay loop>
+    <source src="https://archive.org/download/sonic-30th-anniversary-orchestra/Sonic%20the%20Hedgehog%20Medley.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Random Sonic Quote -->
+  <div id="random-saying">Loading...</div>
+
+  <!-- Top Menu -->
+  <nav>
+    <a href="characters.html" class="menu-btn">Characters</a>
+    <a href="animations.html" class="menu-btn">Animations</a>
+    <a href="index.html#fanart" class="menu-btn">Fan Art</a>
+  </nav>
+
+  <!-- Animations Section -->
+  <section id="animations">
+    <h2>🎩 Choose an Animation</h2>
+    <div class="button-row">
+      <a href="#" class="blue-btn">💙 Sonic Mania Adventures</a>
+      <a href="#" class="yellow-btn">💛 Team Sonic Racing Overdrive</a>
+      <a href="#" class="red-btn">❤️ Sonic Colors: Rise of the Wisps</a>
+      <a href="https://www.youtube.com/watch?v=Vn0vHxVg3vU" target="_blank" class="purple-btn">💜 Sonic Dream Team</a>
+      <a href="https://www.youtube.com/watch?v=1qfT8JspuKI" target="_blank" class="green-btn">💚 Sonic Superstars: Trio of Trouble</a>
+
+    </div>
+    <br><br>
+    <a href="index.html" class="menu-btn">🔙 Back to Home</a>
+  </section>
+
+  <!-- Sonic Quote Script -->
+  <script>
+    const sayings = [
+      "Gotta go fast!",
+      "You're too slow!",
+      "Let's blast through with Sonic speed!",
+      "Come on, step it up!",
+      "The servers are the seven Chaos..."
+    ];
+    window.addEventListener("DOMContentLoaded", () => {
+      const randomSayingDiv = document.getElementById("random-saying");
+      const randomIndex = Math.floor(Math.random() * sayings.length);
+      randomSayingDiv.innerText = sayings[randomIndex];
+    });
+    document.addEventListener("click", () => {
+      const music = document.getElementById("bg-music");
+      if (music && music.paused) music.play().catch(() => {});
+    });
+  </script>
+
+</body>
+</html>
+

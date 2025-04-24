@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sonic Central</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+  <script>
+    const zones = [
+      { name: "Green Hill Zone", img: "https://upload.wikimedia.org/wikipedia/en/0/0c/Green_Hill_Zone.png" },
+      { name: "Chemical Plant Zone", img: "https://cdn.wikimg.net/en/strategywiki/images/6/6c/Sonic2_Chemical_Plant_Zone.png" },
+      { name: "Sky Sanctuary Zone", img: "https://cdn.wikimg.net/en/strategywiki/images/0/0d/Sky_Sanctuary_Zone.png" },
+      { name: "Crisis City", img: "https://static.wikia.nocookie.net/sonic/images/1/14/Crisis_City_Generations.png/revision/latest/scale-to-width-down/700" },
+      { name: "Stardust Speedway", img: "https://cdn.wikimg.net/en/strategywiki/images/2/2d/Sonic_CD_Stardust_Speedway_Act_3.png" }
+    ];
+
+    const today = new Date().getDate(); // 1 to 31
+    const zone = zones[today % zones.length]; // Rotate through zones
+
+    document.getElementById("zone-of-the-day").innerHTML = `
+      <h3>🌍 Zone of the Day: ${zone.name}</h3>
+      <img src="${zone.img}" alt="${zone.name}" style="width: 90%; border-radius: 12px; margin-top: 10px;">
+    `;
+  </script>
+
+<body>
+
+ 
+
+  <!-- Music -->
+  <audio id="bg-music" autoplay loop>
+    <source src="https://archive.org/download/sonic-30th-anniversary-orchestra/Sonic%20the%20Hedgehog%20Medley.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Random quote -->
+  <div id="random-saying">Loading...</div>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="login.html" class="menu-btn">Login</a>
+
+    
+    <a href="characters.html" class="menu-btn">Characters</a>
+    <a href="animations.html" class="menu-btn">Animations</a>
+    <a href="fanart.html" class="menu-btn">Fan Art</a>
+  </nav>
+
+  <!-- Characters Section -->
+  <section id="characters">
+    <a href="characters.html" class="big-btn">Characters</a>
+    <p>Discuss Sonic, Tails, Knuckles & more!</p>
+  </section>
+
+  <section id="animations">
+    <a href="animations.html" class="big-btn">Animations</a>
+    
+    <p>Watch awesome Sonic animations here!</p>
+  </section>
+
+  <section id="fanart">
+    <button class="big-btn" onclick="location.href='fanart.html'">Fan Art</button>
+    <p>Check out amazing Sonic drawings by fans!</p>
+    <p><em>Want to share yours? Ask a parent to help you email it to the site owner!</em></p>
+    <br>
+    <button class="menu-btn" onclick="location.href='login.html'">🔐 Login to Submit</button>
+  </section>
+
+
+
+  <!-- JavaScript for quote & music -->
+  <script>
+    const sayings = [
+      "Gotta go fast!",
+      "You're too slow!",
+      "We need more Tails fans in here.",
+      "Let's blast through with Sonic speed!",
+      "Come on, step it up!",
+      "The servers are the seven Chaos...",
+      "Time to crack that Egghead wide open!",
+      "That’s no good!",
+      "Way past cool!",
+      "Catch me if you can!"
+    ];
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const randomSayingDiv = document.getElementById("random-saying");
+      const randomIndex = Math.floor(Math.random() * sayings.length);
+      randomSayingDiv.innerText = sayings[randomIndex];
+    });
+
+    document.addEventListener("click", () => {
+      const music = document.getElementById("bg-music");
+      if (music && music.paused) {
+        music.play().catch(() => {
+          console.log("Autoplay was blocked.");
+        });
+      }
+    });
+  </script>
+
+</body>
+  <script>
+    const secretCode = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'a', 'Enter'];
+    let codeIndex = 0;
+
+    window.addEventListener('keydown', function(event) {
+      const key = event.key;
+
+      // Stop Enter from doing anything else
+      if (key === 'Enter') {
+        event.preventDefault();
+      }
+
+      if (key === secretCode[codeIndex]) {
+        codeIndex++;
+        if (codeIndex === secretCode.length) {
+          codeIndex = 0;
+          alert("✨ Secret Unlocked!");
+          window.location.href = "secret.html";
+        }
+      } else {
+        codeIndex = 0;
+      }
+    });
+  </script>
+
+
+</html>
+
+<a href="quiz.html" class="quiz-btn">🧠 Sonic Quiz</a>
+<a href="bosses.html" class="red-btn">💥 Boss Battles</a>
+<a href="zones.html" class="yellow-btn">🌍 Explore Zones</a>
+<div id="zone-of-the-day" class="zone-box"></div>
